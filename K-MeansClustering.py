@@ -1,3 +1,9 @@
+#Anjali Sajith 
+#Stuti Khandelwal
+#Shambhavi Kurup
+
+
+
 from random import uniform
 import csv 
 
