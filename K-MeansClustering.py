@@ -65,7 +65,7 @@ def CalculateCentres(k, rows):
     constant = True; 
     for i in range(len(rows)): 
         for j in range(2)
-            item[j] = rows[i][Attributes[j]]; 
+            item[j] = rows[i][Attributes[j]];  #extracting the data of two relevant attributes from the rows
       index = Assign(centres,item); #assigning items into a cluster
       clusterLength[index] = clusterLength[i] + 1; 
       cSize = clusterLength[index]; 
