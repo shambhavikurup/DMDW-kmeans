@@ -28,7 +28,7 @@ def InitializeMeans( k, Min, Max):
 def Assign(means, item): #inputs array of means and selected item
     minimum = 100000;  
     index = -1;
-    for i in means[k]: 
+    for i in range(k): 
         distance = DistanceBetweenPoints(item, means[i])  #calculate Euclidian Distance
         if(distance < minimum): 
             minimum = distance;
