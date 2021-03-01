@@ -1,14 +1,7 @@
-<<<<<<< HEAD
-#Anjali Sajith
-#Stuti Khandelwal
-#Shambhavi Kurup
-=======
+
 #Anjali Sajith        1020191420
 #Stuti Khandelwal     1020191308
 #Shambhavi Kurup      1020191577
->>>>>>> aedac9d212375d49df29f265ea7d9e63dae2ae03
-
-
 
 from random import uniform
 import csv 
