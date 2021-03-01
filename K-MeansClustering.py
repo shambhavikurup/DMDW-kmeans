@@ -1,16 +1,6 @@
 from random import uniform
 import csv 
 
-filename = "fires-extended.csv"
-rows = [] 
-  
-# parsing csv file 
-with open(filename, 'r') as csvfile:        #opening file in read mode
-    filereaderobj = csv.reader(csvfile)     #creating a csv file reader object
-    for row in filereaderobj: 
-        rows.append(row) 
-    #rows[] is the array of records. each rows[i] is one record. len(rows) = number of records in the dataset
-    #filereaderobj.line_num = total number of records in dataset
   
 def DistanceBetweenPoints(a, b):
     S = 0;
@@ -97,6 +87,18 @@ def CalculateCentres(k, rows):
   
   
   def main():
+    
+    filename = "fires-extended.csv" #chosen dataset
+    rows = [] 
+
+    # parsing csv file 
+    with open(filename, 'r') as csvfile:        #opening file in read mode
+        filereaderobj = csv.reader(csvfile)     #creating a csv file reader object
+        for row in filereaderobj: 
+            rows.append(row) 
+        #rows[] is the array of records. each rows[i] is one record. len(rows) = number of records in the dataset
+        #filereaderobj.line_num = total number of records in dataset
+        
     Centres = CalculateCentres(20, rows)
     Clusters = FindClusters(Centres, rows)
     print(Centres + "\n")
