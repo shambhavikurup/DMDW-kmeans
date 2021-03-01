@@ -19,9 +19,10 @@ def AttributeMinMax(rows, n): #input rows[i]
 
 def InitializeCentres( k, Min, Max): 
     
-    for centroid in centres[k]: 
+    for j in range(k): 
         for i in range(len(centroid)): 
-            centroid[i] = uniform(Min[i]+1, Max[i]-1); 
+            centre[i] = uniform(Min[i]+1, Max[i]-1); 
+            centres.append(centre[i]);
   
     return centres; 
 
@@ -42,13 +43,13 @@ def FindClusters(centres, rows):
         Clusters[index].append(item);  #adds item to its cluster
     return Clusters;
 
-def UpdateCentroid(n, centroid, item): #n is the number of items in that cluster, item is the datapoint in that cluster
-    for i in range(len(centroid)): 
-        m = centroid[i];  #taking in the value of the current centroid
+def UpdateCentre(n, centre, item): #n is the number of items in that cluster, item is the datapoint in that cluster
+    for i in range(len(centre)): 
+        m = centre[i];  #taking in the value of the current centroid
         m = (m*(n-1)+item[i])/float(n); #finding the average of the points and recalculating m
-        centroid[i] = round(m, 3); 
+        centre[i] = round(m, 3); 
       
-    return centroid;
+    return centre;
 
 def CalculateCentres(k, rows):
   Attributes = [9, 11] #finding minimum and maximum value of the points in the dataset
