@@ -35,9 +35,9 @@ def Assign(means, item): #inputs array of means and selected item
             index = i;     #finds the mean with the minimum distance from the item
     return index
 
-def FindClusters(means, items):
+def FindClusters(means, rows):
     Clusters = [[] for i in range(k)];
-    for item in items:
+    for item in rows:
         index = Assign(means, item);  #finds index of centroid closest to item
         Clusters[index].append(item);  #adds item to its cluster
     return Clusters;
@@ -50,20 +50,20 @@ def UpdateCentroid(n, centroid, item): #n is the number of items in that cluster
       
     return centroid;
 
-def CalculateMeans(k, items):
+def CalculateMeans(k, rows):
   Attributes = [11, 13] #finding minimum and maximum value of the points in the dataset
   for i in range(2):
       Min[i], Max[i] = AttributeMinMax(rows, Atrributes[i]);
-      
+
   means = InitializeMeans(k, Min, Max); #initiali
   
   clusterLength= [0 for i in range(len(means))]; #array to hold number of items in a cluster
-  belonging = [0 for i in range(len(items))]; #array to hold the cluster an item is in
+  belonging = [0 for i in range(len(rows))]; #array to hold the cluster an item is in
 
   for e in range(100000): 
     noChange = True; 
-    for i in range(len(items)): 
-      item = items[i]; 
+    for i in range(len(rows)): 
+      item = rows[i]; 
       index = Assign(means,item); #assigning items into a cluster
       clusterLength[index] = clusterLength[i] + 1; 
       cSize = clusterLength[index]; 
