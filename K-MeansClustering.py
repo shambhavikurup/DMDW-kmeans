@@ -55,7 +55,7 @@ def CalculateCentres(k, rows):
   for i in range(2):
       Min[i], Max[i] = AttributeMinMax(rows, Atrributes[i]);
 
-  means = InitializeCentres(k, Min, Max); #initiali
+  centres = InitializeCentres(k, Min, Max); #initiali
   
   clusterLength= [0 for i in range(len(centres))]; #array to hold number of items in a cluster
   belonging = [0 for i in range(len(rows))]; #array to hold the cluster an item is in
@@ -67,7 +67,7 @@ def CalculateCentres(k, rows):
       index = Assign(centres,item); #assigning items into a cluster
       clusterLength[index] = clusterLength[i] + 1; 
       cSize = clusterLength[index]; 
-      means[index] = UpdateCentroid(cSize,centres[index],item); 
+      centres[index] = UpdateCentroid(cSize,centres[index],item); 
       
       if(index != belongsTo[i]): 
         noChange = False; 
@@ -77,4 +77,4 @@ def CalculateCentres(k, rows):
     if (noChange): 
             break; 
   
-    return means;
+    return centres;
