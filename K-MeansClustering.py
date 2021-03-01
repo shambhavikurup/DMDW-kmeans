@@ -93,3 +93,12 @@ def CalculateCentres(k, rows):
             break; 
   
     return centres;
+  
+  
+  
+  def main():
+    Centres = CalculateCentres(20, rows)
+    Clusters = FindClusters(Centres, rows)
+    print(Centres + "\n")
+    print(Clusters)
+    
