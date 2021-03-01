@@ -19,11 +19,11 @@ def AttributeMinMax(rows, n): #input rows[i]
 
 def InitializeCentres( k, Min, Max): 
     
-    centres = [ [ ] ]*k
-    for j in range(k): 
+    centres = [[0 for i in range(2)] for j in range(k)]
+    
+    for centre in centres: 
         for i in range(2): 
             centre[i] = uniform(Min[i]+1, Max[i]-1); 
-            centres.append(centre[i]);
   
     return centres; 
 
