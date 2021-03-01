@@ -17,28 +17,28 @@ def AttributeMinMax(rows, n): #input rows[i]
             maximum = rows[i][n] #reassign the value if new value is more than the current maximum value
     return minimum, maximum 
 
-def InitializeMeans( k, Min, Max): 
+def InitializeCentres( k, Min, Max): 
     
-    for centroid in means[k]: 
+    for centroid in centres[k]: 
         for i in range(len(centroid)): 
             centroid[i] = uniform(Min[i]+1, Max[i]-1); 
   
-    return means; 
+    return centres; 
 
-def Assign(means, item): #inputs array of means and selected item
+def Assign(centres, item): #inputs array of means and selected item
     minimum = 100000;  
     index = -1;
     for i in range(k): 
-        distance = DistanceBetweenPoints(item, means[i])  #calculate Euclidian Distance
+        distance = DistanceBetweenPoints(item, centres[i])  #calculate Euclidian Distance
         if(distance < minimum): 
             minimum = distance;
             index = i;     #finds the mean with the minimum distance from the item
     return index
 
-def FindClusters(means, rows):
+def FindClusters(centres, rows):
     Clusters = [[] for i in range(k)];
     for item in rows:
-        index = Assign(means, item);  #finds index of centroid closest to item
+        index = Assign(centres, item);  #finds index of centroid closest to item
         Clusters[index].append(item);  #adds item to its cluster
     return Clusters;
 
@@ -50,24 +50,24 @@ def UpdateCentroid(n, centroid, item): #n is the number of items in that cluster
       
     return centroid;
 
-def CalculateMeans(k, rows):
+def CalculateCentres(k, rows):
   Attributes = [11, 13] #finding minimum and maximum value of the points in the dataset
   for i in range(2):
       Min[i], Max[i] = AttributeMinMax(rows, Atrributes[i]);
 
-  means = InitializeMeans(k, Min, Max); #initiali
+  means = InitializeCentres(k, Min, Max); #initiali
   
-  clusterLength= [0 for i in range(len(means))]; #array to hold number of items in a cluster
+  clusterLength= [0 for i in range(len(centres))]; #array to hold number of items in a cluster
   belonging = [0 for i in range(len(rows))]; #array to hold the cluster an item is in
 
   for e in range(100000): 
     noChange = True; 
     for i in range(len(rows)): 
       item = rows[i]; 
-      index = Assign(means,item); #assigning items into a cluster
+      index = Assign(centres,item); #assigning items into a cluster
       clusterLength[index] = clusterLength[i] + 1; 
       cSize = clusterLength[index]; 
-      means[index] = UpdateCentroid(cSize,means[index],item); 
+      means[index] = UpdateCentroid(cSize,centres[index],item); 
       
       if(index != belongsTo[i]): 
         noChange = False; 
