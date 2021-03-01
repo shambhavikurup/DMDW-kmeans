@@ -11,3 +11,4 @@ def AttributeMinMax(column): #input rows[i]
             minimum = column[i]  #reassign the value if new value is less than the current minimum value
         if(rows[i]>maximum):
             maximum = column[i] #reassign the value if new value is more than the current maximum value
+    return minimum, maximum 
