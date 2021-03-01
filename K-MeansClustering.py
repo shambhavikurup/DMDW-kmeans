@@ -20,7 +20,7 @@ def AttributeMinMax(rows, n): #input rows[i]
 def InitializeCentres( k, Min, Max): 
     
     for j in range(k): 
-        for i in range(len(centroid)): 
+        for i in range(len(centre)): 
             centre[i] = uniform(Min[i]+1, Max[i]-1); 
             centres.append(centre[i]);
   
@@ -59,23 +59,23 @@ def CalculateCentres(k, rows):
   centres = InitializeCentres(k, Min, Max); #initiali
   
   clusterLength= [0 for i in range(len(centres))]; #array to hold number of items in a cluster
-  belonging = [0 for i in range(len(rows))]; #array to hold the cluster an item is in
+  liesIn = [0 for i in range(len(rows))]; #array to hold the cluster an item is in
 
   for e in range(100000): 
-    noChange = True; 
+    constant = True; 
     for i in range(len(rows)): 
       item = rows[i]; 
       index = Assign(centres,item); #assigning items into a cluster
       clusterLength[index] = clusterLength[i] + 1; 
       cSize = clusterLength[index]; 
-      centres[index] = UpdateCentroid(cSize,centres[index],item); 
+      centres[index] = UpdateCentre(cSize,centres[index],item); 
       
-      if(index != belongsTo[i]): 
-        noChange = False; 
-        belonging[i] = index; 
+      if(index != liesIn[i]): 
+        constant = False; 
+        liesIn[i] = index; 
         
         
-    if (noChange): 
+    if (constant): 
             break; 
   
     return centres;
