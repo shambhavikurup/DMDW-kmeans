@@ -51,7 +51,7 @@ def UpdateCentroid(n, centroid, item): #n is the number of items in that cluster
     return centroid;
 
 def CalculateCentres(k, rows):
-  Attributes = [11, 13] #finding minimum and maximum value of the points in the dataset
+  Attributes = [9, 11] #finding minimum and maximum value of the points in the dataset
   for i in range(2):
       Min[i], Max[i] = AttributeMinMax(rows, Atrributes[i]);
 
