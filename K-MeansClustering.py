@@ -56,7 +56,7 @@ def CalculateCentres(k, rows):
   for i in range(2):
       Min[i], Max[i] = AttributeMinMax(rows, Atrributes[i]);
 
-  centres = InitializeCentres(k, Min, Max); #initiali
+  centres = InitializeCentres(k, Min, Max); #initializing random centres
   
   clusterLength= [0 for i in range(len(centres))]; #array to hold number of items in a cluster
   liesIn = [0 for i in range(len(rows))]; #array to hold the cluster an item is in
